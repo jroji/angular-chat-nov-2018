@@ -1,0 +1,5 @@
+<a routerLink="/">< Volver</a>
+<p> Writting to {{ target }}</p>
+
+<app-board [user]="target"></app-board>
+<app-text (onMessage)="addMessage($event)"></app-text>

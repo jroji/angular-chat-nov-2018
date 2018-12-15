@@ -1,0 +1,10 @@
+:host {
+    display: flex;
+    flex-direction: column;
+}
+.message {
+    padding: 5px 10px;
+    border-radius: 5px;
+    background: #91eab4;
+    display: inline-block;
+}

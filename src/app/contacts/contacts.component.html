@@ -1,0 +1,4 @@
+<a routerLink="chat/{{ user.name.first }}" class="contact" *ngFor="let user of users">
+  <h3> {{ user.name.first }} {{ user.name.last }}</h3>
+  <p>{{ getLastMessage(user.name.first) }}</p>
+</a>

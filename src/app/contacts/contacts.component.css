@@ -1,0 +1,20 @@
+.contact {
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid lightgray;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact h3 {
+    font-size: 14px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+p {
+    color: lightgray;
+}
