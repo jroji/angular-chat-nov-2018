@@ -20,7 +20,11 @@ export class ContactsComponent implements OnInit {
 
    getLastMessage(user) {
     const array = this.messages.getMessages(user);
-    return array ? array[array.length - 1].message : '';
+    if (array) {
+      return array[array.length - 1].message
+    } else {
+      return ''
+    }
   }
 
 }

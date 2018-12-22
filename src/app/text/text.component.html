@@ -1,4 +1,8 @@
-<input [(ngModel)]="username" type="text" placeholder="Username">
-<input [(ngModel)]="message" type="text" placeholder="Message">
+  <mat-form-field class="example-full-width">
+<input matInput [(ngModel)]="username" type="text" placeholder="Username">
+</mat-form-field>
+  <mat-form-field class="example-full-width">
+<input matInput [(ngModel)]="message" type="text" placeholder="Message">
+</mat-form-field>
 
 <button (click)="sendMessage()"> Enviar </button>

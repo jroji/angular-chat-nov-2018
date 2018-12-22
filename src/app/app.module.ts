@@ -9,6 +9,9 @@ import { ContactsComponent } from './contacts/contacts.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BoardComponent } from './board/board.component';
 import { TextComponent } from './text/text.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatCardModule} from '@angular/material/card'
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { TextComponent } from './text/text.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
