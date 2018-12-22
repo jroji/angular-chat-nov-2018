@@ -9,13 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactsComponent implements OnInit {
   users = [];
-
+  customContacts = [];
   constructor (private contacts: ContactsService, private messages: MessagesService) { }
 
   ngOnInit() {
     this.contacts.getUser().subscribe(users => {
       this.users = users['results'];
-    })
+    });
+    this.customContacts = this.contacts.customUsers;
+    console.log(this.customContacts);
   }
 
    getLastMessage(user) {

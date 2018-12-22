@@ -1,0 +1,18 @@
+<form #createUser="ngForm" (ngSubmit)="addUser(createUser)">
+  
+    <h3>Create user </h3>
+    <mat-form-field class="example-full-width">
+      <input name="name" matInput [(ngModel)]="name" required placeholder="Name">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input name="lastname" matInput [(ngModel)]="lastname" required placeholder="Lastname">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input name="image" matInput [(ngModel)]="image" placeholder="Image url">
+    </mat-form-field>
+
+    <p class="error" *ngIf="createUser.invalid && tryedToSubmit"> Fill all required fields </p>
+    <button mat-raised-button color="primary">Create new user</button>
+</form>

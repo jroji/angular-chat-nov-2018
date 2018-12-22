@@ -18,3 +18,8 @@ html, body {
 .example-header-image {
     background-size: cover;
 }
+
+.mat-card-image {
+    max-height: 170px;
+    object-fit: cover;
+}

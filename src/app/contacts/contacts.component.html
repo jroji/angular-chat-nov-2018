@@ -15,6 +15,26 @@
     <p> {{ getLastMessage(user.name.first) }} </p>
   </mat-card-content>
   <mat-card-actions>
-    <a  routerLink="chat/{{ user.name.first }}"  mat-button>CHAT !</a>
+      <button mat-mini-fab routerLink="chat/{{ user.name.first }}" >
+        <mat-icon aria-label="Example icon-button with a heart icon">edit</mat-icon>
+      </button>
   </mat-card-actions>
 </mat-card>
+
+
+<mat-card class="example-card" *ngFor="let user of customContacts">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title> {{ user.name.first }} {{ user.name.last }}</mat-card-title>
+      <mat-card-subtitle> {{ user.email }}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [src]="user.image.large" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <p> {{ getLastMessage(user.name.first) }} </p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-mini-fab routerLink="chat/{{ user.name.first }}" >
+          <mat-icon aria-label="Example icon-button with a heart icon">edit</mat-icon>
+        </button>
+    </mat-card-actions>
+  </mat-card>
