@@ -16,3 +16,7 @@
     <p class="error" *ngIf="createUser.invalid && tryedToSubmit"> Fill all required fields </p>
     <button mat-raised-button color="primary">Create new user</button>
 </form>
+
+<agm-map [latitude]="lat" [longitude]="lng">
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>

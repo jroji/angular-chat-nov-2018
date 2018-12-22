@@ -8,8 +8,10 @@ import { ContactsService } from '../contacts.service';
 })
 export class CreateComponent implements OnInit {
   tryedToSubmit: boolean = false;
+  lat: number = 51.678418;
+  lng: number = 7.809007;
+
   constructor(private contacts: ContactsService) { }
-  
   ngOnInit() {
   }
 

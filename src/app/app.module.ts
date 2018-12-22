@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ChatComponent } from './chat/chat.component';
@@ -15,6 +15,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { CreateComponent } from './create/create.component';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,11 @@ import { CreateComponent } from './create/create.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+
     FormsModule,
+    ReactiveFormsModule,
+    AgmCoreModule.forRoot({ apiKey: ''}),
+
     BrowserAnimationsModule,
     MatCardModule,
     MatInputModule,

@@ -9,3 +9,7 @@ form {
 button {
     margin-top: 50px;
 }
+
+agm-map {
+    height: 300px;
+}
