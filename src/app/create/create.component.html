@@ -1,4 +1,4 @@
-<form [formGroup]="userForm" (ngSubmit)="addUser(createUser)">
+<form [formGroup]="userForm">
     <h2>Create user </h2>
 
     <div formGroupName="personal">
@@ -6,6 +6,9 @@
       <mat-form-field class="example-full-width">
         <input formControlName="name" matInput placeholder="Name">
       </mat-form-field>
+      <mat-icon *ngIf="isAvailable">thumb_up</mat-icon>
+      <mat-icon *ngIf="!isAvailable">thumb_down</mat-icon>
+
   
       <mat-form-field class="example-full-width">
         <input formControlName="lastname" matInput placeholder="Lastname">
@@ -32,7 +35,7 @@
         <input formControlName="street" matInput placeholder="Street">
       </mat-form-field>
     </div>
-    <button mat-raised-button color="primary">Create new user</button>
+    <button (click)="addUser()" mat-raised-button color="primary">Create new user</button>
 </form>
 
 <agm-map [latitude]="lat" [longitude]="lng">

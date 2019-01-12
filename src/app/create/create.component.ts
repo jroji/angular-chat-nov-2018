@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactsService } from '../contacts.service';
-import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms';
+import { debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-create',
@@ -12,6 +13,7 @@ export class CreateComponent implements OnInit {
   lat: number = 51.678418;
   lng: number = 7.809007;
   userForm: FormGroup;
+  isAvailable;
 
   constructor(private contacts: ContactsService, private form: FormBuilder) { }
 
@@ -19,7 +21,7 @@ export class CreateComponent implements OnInit {
     this.userForm = this.form.group({
 
       personal: this.form.group({
-        name: ['', Validators.required, Validators.minLength(3)],
+        name: ['', [ Validators.required, Validators.minLength(3) ]],
         lastname: [''],
       }),
 
@@ -34,14 +36,20 @@ export class CreateComponent implements OnInit {
       })
     });
 
+    this.userForm.get('personal').get('name').valueChanges.pipe(debounceTime(500)).subscribe(username => {
+      this.isAvailable = this.contacts.validateUser(username);
+    });
+
+    this.userForm.get('address').get('coordinates').valueChanges.pipe(debounceTime(500)).subscribe(data => { 
+      this.lat = data.latitude;
+      this.lng = data.longitude;
+    });
   }
 
-  addUser(form) {
-    console.log(form.value);
+  addUser() {
     this.tryedToSubmit = true;
-    if (form.valid) {
-      this.contacts.add(form.value);
-      form.reset();
+    if (this.userForm.valid) {
+      this.contacts.add(this.userForm.value);
     }
     
   }

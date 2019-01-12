@@ -4,7 +4,7 @@
 </a>
 -->
 
-<mat-card class="example-card" *ngFor="let user of users">
+<mat-card (click)="toggleState()" [@cardState]="state" class="example-card" *ngFor="let user of users">
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
     <mat-card-title> {{ user.name.first }} {{ user.name.last }}</mat-card-title>
