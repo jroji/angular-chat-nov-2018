@@ -16,6 +16,11 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { CreateComponent } from './create/create.component';
 import { AgmCoreModule } from '@agm/core';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -34,6 +39,9 @@ import { AgmCoreModule } from '@agm/core';
     FormsModule,
     ReactiveFormsModule,
     AgmCoreModule.forRoot({ apiKey: ''}),
+
+    AngularFireModule.initializeApp(environment),
+    AngularFirestoreModule,
 
     BrowserAnimationsModule,
     MatCardModule,

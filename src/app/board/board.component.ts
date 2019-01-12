@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MessagesService } from '../messages.service';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-board',
@@ -12,14 +13,18 @@ export class BoardComponent implements OnInit {
   messages;
 
   constructor(
-    private messageService: MessagesService
+    private messageService: MessagesService,
+    private firebase: AngularFirestore
   ) { }
 
   ngOnInit() {
-    this.messages = this.messageService.getMessages(this.user);
-    this.messageService.messages$.subscribe(messages => {
+    this.firebase.collection('messages').valueChanges().subscribe(messages => {
       this.messages = messages;
-    });
+    })
+    // this.messages = this.messageService.getMessages(this.user);
+    // this.messageService.messages$.subscribe(messages => {
+    //   this.messages = messages;
+    // });
   }
 
 }

@@ -1,3 +1,4 @@
+import { AngularFirestore } from '@angular/fire/firestore';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
@@ -8,12 +9,13 @@ export class MessagesService {
   private messages = {};
   messages$ = new Subject();
 
-  constructor() { }
+  constructor(private firebase: AngularFirestore) { }
 
   saveMessage(message, name) {
-    if (!this.messages[name]) { this.messages[name] = []; }
-    this.messages[name].push(message);
-    this.messages$.next(this.messages[name]);
+    this.firebase.collection('messages').add(message);
+    // if (!this.messages[name]) { this.messages[name] = []; }
+    // this.messages[name].push(message);
+    // this.messages$.next(this.messages[name]);
   }
 
   getMessages (name) {
