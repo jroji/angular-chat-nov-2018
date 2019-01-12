@@ -1,4 +1,11 @@
 :host {
     display: flex;
     background: white;
+    flex-direction: column;
+    padding: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
 }

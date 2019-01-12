@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-text',
@@ -8,7 +8,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class TextComponent implements OnInit {
   @Output() onMessage = new EventEmitter();
 
-  username: string;
+  @Input() username: string;
   message: string;
 
   constructor() { }

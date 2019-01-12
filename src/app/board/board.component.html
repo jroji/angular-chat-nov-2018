@@ -1,3 +1,6 @@
-<p class="message" *ngFor="let message of messages">
-  {{ message.message }}
-</p>
+<div class="message" *ngFor="let message of messages">
+    <h4>{{ message.username }}:</h4>
+    <p >
+        {{ message.message }}
+    </p>    
+</div>

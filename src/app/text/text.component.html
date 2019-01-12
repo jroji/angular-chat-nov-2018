@@ -1,12 +1,10 @@
+<h3>{{ username }}: </h3>
 <form #myForm="ngForm">
-    <mat-form-field class="example-full-width">
-    <input name="username" matInput [(ngModel)]="username" type="text" placeholder="Username" required>
-    </mat-form-field>
-      <mat-form-field class="example-full-width">
+  <mat-form-field class="example-full-width">
     <input name="message" matInput [(ngModel)]="message" type="text" placeholder="Message">
-    </mat-form-field>
+  </mat-form-field>
 </form>
 
 <p *ngIf="myForm.invalid && myForm.touched"> Rellene todos los campos requeridos</p>
 
-<button (click)="sendMessage()"> Enviar </button>
+<button mat-raised-button (click)="sendMessage()"> Enviar </button>
